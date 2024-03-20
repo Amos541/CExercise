@@ -33,3 +33,14 @@ int Search_loc(SqList L, int i){
         return -1;
     return L.data[i-1];
 }
+
+//设计一个高效算法，将顺序表L的所有元素逆置，要求算法的空间复杂度为O(1)。
+void Reverse(SqList L){
+    int temp;
+    for (int k = 0; k < L.length/2; k++){
+        temp = L.data[k];
+        L.data[k] = L.data[L.length-k-1];
+        L.data[L.length-k-1] = temp;
+    }
+}
+
