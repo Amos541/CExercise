@@ -4,7 +4,6 @@ void main(){
     s.length = 0;
     s.data[0] = 1;
     s.length = s.length + 1;
-    
 }
 
 #define MaxSize 100
