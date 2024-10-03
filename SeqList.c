@@ -1,13 +1,13 @@
 #include<stdio.h>
 void main(){
     SeqList s;
-    s.data = (int*)malloc(sizeof(int)*100);//åŠ¨æ€åˆ†é…å†…å­˜
+    s.data = (int*)malloc(sizeof(int)*100);//¶¯Ì¬·ÖÅäÄÚ´æ
     s.MaxSize = 100;
     s.length = 0;
 }
 
 typedef struct {
-    int *data;//åˆ©ç”¨æŒ‡é’ˆåŠ¨æ€åˆ†é…å†…å­˜
+    int *data;//ÀûÓÃÖ¸Õë¶¯Ì¬·ÖÅäÄÚ´æ
     int MaxSize,length;
 }SeqList;
 

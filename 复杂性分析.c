@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-//forå¾ªçŽ¯
+//forÑ­»·
 int ForLoop(int n){
     int sum = 0;
     for (int n = 1; n <= 10; n++){
