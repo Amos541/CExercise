@@ -26,8 +26,7 @@ int main(void){
 		for(j=0;j<3;j++){
 			k++;
 			m++;
-		}
+		};
 		printf("k=%d£¬m=%d\n",k,m);
-	}
-	return 0;
+	};
 }
