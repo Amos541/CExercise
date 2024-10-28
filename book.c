@@ -177,19 +177,205 @@
 // }
 
 //2-6 输入两个整数lower和upper，输出一张华氏摄氏温度转换表，取值范围是[lower,upper]，每次增加一华氏度
+// int main(void){
+//     int fahr, lower, upper;
+//     double celsius;
+//     printf("Enter lower and upper:\n");
+//     scanf("%d %d", &lower, &upper);
+//     if(lower < upper){
+//         printf("fahr celsius\n");
+//         for(fahr=lower; fahr<=upper; fahr++){
+//             celsius = (5.0/9.0)*(fahr-32);
+//             printf("%4d%6.1f\n", fahr, celsius);
+//         }
+//     } else {
+//         printf("Invalid Value!\n");
+//     }
+//     return 0;
+// }
+
+//2-7 输入一个正整数n，累加求和
+// int main(void){
+//     int i, n, sum;
+//     printf("输入一个正整数n:");
+//     scanf("%d", &n);
+//     sum = 0;
+//     for(i=1; i<=n; i++){
+//         sum = sum + i;
+//     }
+//     printf("Sum of numbers from 1 to %d is %d\n", n, sum);
+//     return 0;
+// }
+
+//2-8 输入一个正整数n，计算1-1/3+1/5-1/7+...的前n项之和
+// int main(void){
+//     int denominator, flag, n, i;
+//     double item, sum;
+//     printf("Enter n:");
+//     scanf("%d", &n);
+//     denominator = 1;//第i项分母
+//     item = 1;
+//     sum = 0;
+//     flag = 1;//第i项符号
+//     for(i=1; i<=n; i++){
+//         sum = sum + item;
+//         flag = -flag;
+//         denominator = denominator + 2;
+//         item = flag * 1.0/denominator;
+//     }
+//     printf("sum=%f\n", sum);
+//     return 0;
+// }
+
+//2-9 输入一个正整数n，计算n!
+// int main(void){
+//     int n, i;
+//     double product;
+//     printf("Enter n:");
+//     scanf("%d", &n);
+//     product = 1;
+//     for(i=1; i<=n; i++){
+//         product = product * i;
+//     }
+//     printf("product=%.0f\n", product);
+//     return 0;
+// }
+
+//练习2-12 输入两个整数lower和upper，输出一张华氏摄氏温度转换表，取值范围是[lower,upper]，每次增加2华氏度
+// int main(void){
+//     int fahr, lower, upper;
+//     double celsius;
+//     printf("Enter lower and upper:\n");
+//     scanf("%d %d", &lower, &upper);
+//     if(lower < upper){
+//         printf("fahr celsius\n");
+//         for(fahr=lower; fahr<=upper; fahr=fahr+2){
+//             celsius = (5.0/9.0)*(fahr-32);
+//             printf("%4d%6.1f\n", fahr, celsius);
+//         }
+//     } else {
+//         printf("Invalid Value!\n");
+//     }
+//     return 0;
+// }
+
+//练习2-13 输入一个正整数n，计算1+1/2+1/3+1/4+...的前n项和
+// int main(void){
+//     int n, i;
+//     double sum = 0;
+//     printf("Enter n:");
+//     scanf("%d", &n);
+//     for(i=1; i<=n; i++){
+//         sum = sum + 1.0/i;
+//     }
+//     printf("sum=%f\n", sum);
+//     return 0;
+// }
+
+//练习2-14 输入一个正整数n，计算1+1/3+1/5+1/7+...的前n项之和
+// int main(void){
+//     int n, i;
+//     double sum = 0;
+//     printf("Enter n:");
+//     scanf("%d", &n);
+//     for(i=1; i<=2*n-1; i=i+2){
+//         sum = sum + 1.0/i;
+//     }
+//     printf("sum=%f\n", sum);
+//     return 0;
+// }
+
+//练习2-15 输入一个正整数n，计算1-1/4+1/7-1/10+...的前n项之和
+// int main(void){
+//     int denominator, flag, n, i;
+//     double item, sum;
+//     printf("Enter n:");
+//     scanf("%d", &n);
+//     denominator = 1;//第i项分母
+//     item = 1;
+//     sum = 0;
+//     flag = 1;//第i项符号
+//     for(i=1; i<=n; i++){
+//         sum = sum + item;
+//         flag = -flag;
+//         denominator = denominator + 3;
+//         item = flag * 1.0/denominator;
+//     }
+//     printf("sum=%f\n", sum);
+//     return 0;
+// }
+
+//2-10 输入一个正整数n，生成一张2的乘方表，输出2^0到2^n的值,可以调用幂函数计算2的乘方
+// #include <math.h>
+// int main(void){
+//     int i, n;
+//     double power;
+//     printf("Enter n:");
+//     scanf("%d", &n);
+//     for(i=0; i<=n; i++){
+//         power = pow(2, i);
+//         printf("pow(2, %d)=%.0f\n", i, power);
+//     }
+//     return 0;
+// }
+
+//2-11 输入一个正整数n(n<=16)，生成一张阶乘表输出0！到n！的值。要定义和调用函数fact(n)计算n！，函数类型是double
+// double fact(int n);
+// int main(void){
+//     int i, n;
+//     double result;
+//     printf("Enter n:");
+//     scanf("%d", &n);
+//     for(i=0; i<=n; i++){
+//         result = fact(i);
+//         printf("%d!=%.0f\n", i, result);
+//     }
+//     return 0;
+// }
+// double fact(int n){
+//     int i;
+//     double product;
+//     product = 1;
+//     for(i=1; i<=n; i++){
+//         product = product * i;
+//     }
+//     return product;
+// }
+
+//练习2-17 输入一个正整数n，生成一张3的乘方表，输出3^0到3^n的值，可包含头文件math.h，调用幂函数计算3的乘方
+// #include <math.h>
+// int main(void){
+//     int n, i, res;
+//     printf("Enter n:");
+//     scanf("%d", &n);
+//     for(i=0; i<=n; i++){
+//         res = pow(3, i);
+//         printf("pow(3, %d)=%d\n", i, res);
+//     }
+//     return 0;
+// }
+
+//练习2-18 输入两个正整数m和n(m<=n)，计算并输出组合数，组合数公式：C=n!/m!(n-m)!。要求定义和调用函数fact(n)计算n!,函数类型是double
+double fact(int n);
 int main(void){
-    int fahr, lower, upper;
-    double celsius;
-    printf("Enter lower and upper:\n");
-    scanf("%d %d", &lower, &upper);
-    if(lower < upper){
-        printf("fahr celsius\n");
-        for(fahr=lower; fahr<=upper; fahr++){
-            celsius = (5.0/9.0)*(fahr-32);
-            printf("%4d%6.1f\n", fahr, celsius);
-        }
-    } else {
+    int m, n;
+    double result;
+    printf("Enter m and n:");
+    scanf("%d %d", &m, &n);
+    if(m>n){
         printf("Invalid Value!\n");
+    } else {
+        result = fact(n)/(fact(m)*fact(n-m));
+        printf("C=%f\n", result);
     }
     return 0;
+}
+double fact(int n){
+    int i;
+    double product;
+    product = 1;
+    for(i=1; i<=n; i++){
+        product = product * i;
+    }
+    return product;
 }

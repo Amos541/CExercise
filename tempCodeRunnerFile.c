@@ -1,15 +1,11 @@
-#include <stdio.h>
-int main(){
-    int a, b;
-    scanf("%d %d", &a, &b);
-    double shang = (double)a/b;
-    printf("[%d] + [%d] = [%d]\n", a, b, a+b);
-    printf("[%d] - [%d] = [%d]\n", a, b, a-b);
-    printf("[%d] * [%d] = [%d]\n", a, b, a*b);
-    if(shang == (int)shang){
-        printf("[%d] / [%d] = [%d]", a, b, (int)shang);
-    }else{
-        printf("[%d] / [%d] = [%.2f]", a, b, shang);
+int main(void){
+    int n, i;
+    double sum = 0;
+    printf("Enter n:");
+    scanf("%d", &n);
+    for(i=1; i<=n; i=i+2){
+        sum = sum + 1.0/i;
     }
+    printf("sum=%f\n", sum);
     return 0;
 }
