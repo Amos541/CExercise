@@ -39,13 +39,13 @@
 //     return 0;
 // }
 
-//2-1 输出Hello World!
+//例2-1 输出Hello World!
 // int main(void){
 //     printf("Hello World!");
 //     return 0;
 // }
 
-//2-2 显示“Programming is fun.”和“And programming in C is even more fun!”，每行显示一句
+//例2-2 显示“Programming is fun.”和“And programming in C is even more fun!”，每行显示一句
 // int main(void){
 //     printf("Programming is fun.\n");
 //     printf("And programming in C is even more fun!\n");
@@ -66,7 +66,7 @@
 //     return 0;
 // }
 
-//2-3 求华氏温度100℉对应的摄氏温度，计算公式为c=5*(f-32)/9
+//例2-3 求华氏温度100℉对应的摄氏温度，计算公式为c=5*(f-32)/9
 // int main(void){
 //     int celsius, fahr;
 //     fahr = 100;
@@ -93,7 +93,7 @@
 //     return 0;
 // }
 
-//2-4 计算水费
+//例2-4 计算水费
 // int main(void){
 //     double x, y;
 //     printf("Enter x(x>=0):\n");
@@ -107,7 +107,7 @@
 //     return 0;
 // }
 
-//2-5 坚持的力量（幂函数）：第一天的能力值为基数，用initial表示，能力值相比前一天提高的值factor就是努力参数，坚持天数为day。根据公式 result=initial(1+factor)^day 计算出能力值，输出时保留两位小数。
+//例2-5 坚持的力量（幂函数）：第一天的能力值为基数，用initial表示，能力值相比前一天提高的值factor就是努力参数，坚持天数为day。根据公式 result=initial(1+factor)^day 计算出能力值，输出时保留两位小数。
 // #include <math.h>
 // int main(void){
 //     int day;
@@ -176,7 +176,7 @@
 //     return 0;
 // }
 
-//2-6 输入两个整数lower和upper，输出一张华氏摄氏温度转换表，取值范围是[lower,upper]，每次增加一华氏度
+//例2-6 输入两个整数lower和upper，输出一张华氏摄氏温度转换表，取值范围是[lower,upper]，每次增加一华氏度
 // int main(void){
 //     int fahr, lower, upper;
 //     double celsius;
@@ -194,7 +194,7 @@
 //     return 0;
 // }
 
-//2-7 输入一个正整数n，累加求和
+//例2-7 输入一个正整数n，累加求和
 // int main(void){
 //     int i, n, sum;
 //     printf("输入一个正整数n:");
@@ -207,7 +207,7 @@
 //     return 0;
 // }
 
-//2-8 输入一个正整数n，计算1-1/3+1/5-1/7+...的前n项之和
+//例2-8 输入一个正整数n，计算1-1/3+1/5-1/7+...的前n项之和
 // int main(void){
 //     int denominator, flag, n, i;
 //     double item, sum;
@@ -227,7 +227,7 @@
 //     return 0;
 // }
 
-//2-9 输入一个正整数n，计算n!
+//例2-9 输入一个正整数n，计算n!
 // int main(void){
 //     int n, i;
 //     double product;
@@ -305,7 +305,7 @@
 //     return 0;
 // }
 
-//2-10 输入一个正整数n，生成一张2的乘方表，输出2^0到2^n的值,可以调用幂函数计算2的乘方
+//例2-10 输入一个正整数n，生成一张2的乘方表，输出2^0到2^n的值,可以调用幂函数计算2的乘方
 // #include <math.h>
 // int main(void){
 //     int i, n;
@@ -319,7 +319,7 @@
 //     return 0;
 // }
 
-//2-11 输入一个正整数n(n<=16)，生成一张阶乘表输出0！到n！的值。要定义和调用函数fact(n)计算n！，函数类型是double
+//例2-11 输入一个正整数n(n<=16)，生成一张阶乘表输出0！到n！的值。要定义和调用函数fact(n)计算n！，函数类型是double
 // double fact(int n);
 // int main(void){
 //     int i, n;
@@ -356,26 +356,195 @@
 // }
 
 //练习2-18 输入两个正整数m和n(m<=n)，计算并输出组合数，组合数公式：C=n!/m!(n-m)!。要求定义和调用函数fact(n)计算n!,函数类型是double
-double fact(int n);
-int main(void){
-    int m, n;
-    double result;
-    printf("Enter m and n:");
-    scanf("%d %d", &m, &n);
-    if(m>n){
-        printf("Invalid Value!\n");
-    } else {
-        result = fact(n)/(fact(m)*fact(n-m));
-        printf("C=%f\n", result);
-    }
-    return 0;
-}
-double fact(int n){
-    int i;
-    double product;
-    product = 1;
-    for(i=1; i<=n; i++){
-        product = product * i;
-    }
-    return product;
-}
+// double fact(int n);
+// int main(void){
+//     int m, n;
+//     double result;
+//     printf("Enter m and n:");
+//     scanf("%d %d", &m, &n);
+//     if(m>n){
+//         printf("Invalid Value!\n");
+//     } else {
+//         result = fact(n)/(fact(m)*fact(n-m));
+//         printf("C=%f\n", result);
+//     }
+//     return 0;
+// }
+// double fact(int n){
+//     int i;
+//     double product;
+//     product = 1;
+//     for(i=1; i<=n; i++){
+//         product = product * i;
+//     }
+//     return product;
+// }
+
+//例3-1 简单的猜数游戏：输入你所猜的整数(假定1~100)，与计算机产生的被猜数相比，如果相等显示猜中；如果不等显示被猜数的大小关系
+// int main(void){
+//     int mynumber = 38;
+//     int yournumber;
+//     printf("Input your number:");
+//     scanf("%d",&yournumber);
+//     if(yournumber==mynumber){
+//         printf("Good Guess!\n");
+//     } else {
+//         if(yournumber>mynumber){
+//             printf("Too big!\n");
+//         } else {
+//             printf("Too small!\n");
+//         }
+//     }
+//     return 0;
+// }
+
+//例3-2 奇偶分家：输入一个正整数n，在输入n个非负整数，统计奇数和偶数各有多少个
+// int main(void){
+//     int count_odd, count_even, n, i, number;
+//     count_odd = 0;
+//     count_even = 0;
+//     printf("Enter n:");
+//     scanf("%d", &n);
+//     printf("Input %d numbers:\n", n);
+//     for(i=1; i<=n; i++){
+//         scanf("%d", &number);
+//         if(number%2!=0){
+//             count_odd++;
+//         } else {
+//             count_even++;
+//         }
+//     }
+//     printf("odd:%d,even:%d\n", count_odd, count_even);
+//     return 0;
+// }
+
+//例3-3 统计指定数量学生的平均成绩与不及格人数：输入一个非负整数n，再输入n个学生的成绩，计算平均分，并统计不及格成绩的学生人数
+// int main(void){
+//     int count, i, n;
+//     double score, total;
+//     printf("Enter n:");
+//     scanf("%d", &n);
+//     total = 0;
+//     count = 0;
+//     for(i=1; i<=n; i++){
+//         printf("Enter score #%d:", i);
+//         scanf("%lf", &score);
+//         total = total + score;
+//         if(score<60){
+//             count++;
+//         }
+//     }
+//     if(n!=0){
+//         printf("Average=%.2f\n", total/n);
+//     } else {
+//         printf("Average=0\n");
+//     }
+//     printf("Number of failures=%d\n", count);
+//     return 0;    
+// }
+
+//例3-4 分段计算居民水费：继续讨论例2-4中提出的分段计算水费的问题。虽然实际生活中不会出现月用水量x小于零的情况，但程序运行时如果不慎输入一个负数，水费计算将会出错。当x<0时，y为0。
+// int main(void){
+//     double x, y;
+//     printf("Enter x:\n");
+//     scanf("%lf", &x);
+//     if(x<0){
+//         y = 0;
+//     } else if(x<=15){
+//         y = 4 * x / 3;
+//     } else {
+//         y = 2.5 * x - 10.5;
+//     }
+//     printf("y=f(%f)=%.2f\n", x, y);
+//     return 0;
+// }
+
+//练习3-2 计算符号函数的值输入一个整数x计算并输出分段函数Signmod(x)的值。
+// int main(void){
+//     int x, y;
+//     printf("Enter x:");
+//     scanf("%d", &x);
+//     if(x==0){
+//         y = 0;
+//     } else if(x>0){
+//         y = 1;
+//     } else {
+//         y = -1;
+//     }
+//     printf("y=%d\n", y);
+//     return 0;
+// }
+
+//练习3-3 统计学生平均成绩与及格人数：输入一个正整数n，再输入n个学生的成绩，计算平均成绩并统计所有及格学生的人数
+// int main(void){
+//     int count, i, n;
+//     double score, total;
+//     printf("Enter n:");
+//     scanf("%d", &n);
+//     total = 0;
+//     count = 0;
+//     for(i=1; i<=n; i++){
+//         printf("Enter score #%d:", i);
+//         scanf("%lf", &score);
+//         total = total + score;
+//         if(score>=60){   //及格条件修改一下
+//             count++;
+//         }
+//     }
+//     if(n!=0){
+//         printf("Average=%.2f\n", total/n);
+//     } else {
+//         printf("Average=0\n");
+//     }
+//     printf("Number of success=%d\n", count); //提示词修改一下
+//     return 0;    
+// }
+
+//例3-5 求解简单的四则运算表达式：输入一个形式如“操作数 运算符 操作数”的四则运算表达式，输出运算结果，要求对除数为0的情况做特别处理
+// int main(void){
+//     double value1, value2;
+//     char op;
+//     printf("Type in an expression:");
+//     scanf("%lf %c %lf", &value1, &op, &value2);//书上的输入没有空格，不符合题意啊
+//     if(op=='+'){
+//         printf("%.2f\n", value1+value2);
+//     } else if(op=='-'){
+//         printf("%.2f\n", value1-value2);
+//     } else if(op=='*'){
+//         printf("%.2f\n", value1*value2);
+//     } else if(op=='/'){
+//         if(value2!=0){
+//             printf("%.2f\n", value1/value2);
+//         } else {
+//             printf("Divide cannot be 0!\n");
+//         }
+//     } else {
+//         printf("Unknown operator!\n");
+//     }
+//     return 0;
+// }
+
+//例3-6 统计英文字母和数字字符，输入一个正整数n，再输入n个字符，统计其中英文字母、数字字符和其他字符的个数
+// int main(void){
+//     int digit, i, letter, n, other;
+//     char ch;
+//     digit = letter = other = 0;
+//     printf("Enter n:");
+//     scanf("%d", &n);
+//     getchar();  //书上说是为了读入并舍弃换行符，但是实测可不加，原因是在下一行的输入语句中加入了换行符，如果没有\n那么此处的getchar()是必需的
+//     printf("Enter %d characters:\n", n);
+//     for(i=1; i<=n; i++){
+//         ch = getchar();
+//         if((ch>='a'&&ch<='z')||(ch>='A'&&ch<='Z')){
+//             letter++;
+//         } else if(ch>='0'&&ch<='9'){
+//             digit++;
+//         } else {
+//             other++;
+//         }
+//     }
+//     printf("letter=%d,digit=%d,other=%d\n", letter, digit, other);
+//     return 0;
+// }
+
+//
