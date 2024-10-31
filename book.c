@@ -524,15 +524,15 @@
 //     return 0;
 // }
 
-//例3-6 统计英文字母和数字字符，输入一个正整数n，再输入n个字符，统计其中英文字母、数字字符和其他字符的个数
+//例3-7 统计英文字母和数字字符，输入一个正整数n，再输入n个字符，统计其中英文字母、数字字符和其他字符的个数
 // int main(void){
 //     int digit, i, letter, n, other;
 //     char ch;
 //     digit = letter = other = 0;
 //     printf("Enter n:");
 //     scanf("%d", &n);
-//     getchar();  //书上说是为了读入并舍弃换行符，但是实测可不加，原因是在下一行的输入语句中加入了换行符，如果没有\n那么此处的getchar()是必需的
-//     printf("Enter %d characters:\n", n);
+//     getchar();  //吸收换行符：scanf 只读取一个整数，但用户输入整数后通常会按回车键。这个回车键会被 scanf 读取为一个换行符，并留在输入缓冲区中。如果不处理这个换行符，后续的 getchar(); 会立即读取到这个换行符，而不是用户输入的字符。如果在测试时发现结果并无影响，可能是因为你在测试时没有遇到特定的情况，导致问题没有显现出来。
+//     printf("Enter %d characters:", n);
 //     for(i=1; i<=n; i++){
 //         ch = getchar();
 //         if((ch>='a'&&ch<='z')||(ch>='A'&&ch<='Z')){
@@ -547,4 +547,170 @@
 //     return 0;
 // }
 
-//
+//例3-8 查询自动售货机中商品的价格：假设自动售货机出售四种商品：薯片，爆米花，巧克力和可乐，售价分别是每份3.0，2.5，4.0和3.5元。在屏幕上显示以下菜单（编号和选项），用户可以连续查询商品的价格。当查询次数超过五次时，自动退出；不到五次时，用户可以选择退出。当用户输入编号1~4，显示相应商品的价格（保留1位小数）；输入0，退出查询；输入其他编号显示价格为0
+// int main(void){
+//     int choice, i;
+//     double price;
+//     printf("[1] Select crisps\n");
+//     printf("[2] Select popcorn\n");
+//     printf("[3] Select chocolate\n");
+//     printf("[4] Select cola\n");
+//     for(i=1; i<=5; i++){
+//         printf("Enter your choice:");
+//         scanf("%d", &choice);
+//         if(choice==0){
+//             break;  //break跳出for循环
+//         }
+//         switch(choice){
+//             case 1:price = 3.0; break;
+//             case 2:price = 2.5; break;
+//             case 3:price = 4.0; break;
+//             case 4:price = 3.5; break;
+//             default:price = 0.0; break;
+//         }
+//         printf("%0.1f\n", price);
+//     }
+//     printf("Thanks!\n");
+//     return 0;
+// }
+
+//例3-9 两个数的简单计算器：编写一个简单计算器程序，可根据输入的运算符，对两个整数进行加、减、乘、除和求余运算，请对除数为0的情况做特别处理要求使用switch语句编写
+// int main(void){
+//     int value1, value2;
+//     char op;
+//     printf("Type in an expression:");
+//     scanf("%d%c%d", &value1, &op, &value2);
+//     switch(op){
+//         case '+':
+//             printf("%d\n", value1+value2);
+//             break;
+//         case '-':
+//             printf("%d\n", value1-value2);
+//             break;
+//         case '*':
+//             printf("%d\n", value1*value2);
+//             break;
+//         case '/':
+//             if(value2!=0){
+//                 printf("%d\n", value1/value2);
+//            } else {
+//                 printf("Divide cannot be 0!\n");
+//            }
+//            break;
+//         case '%':
+//             if(value2!=0){
+//                 printf("%d\n", value1%value2);
+//             } else {
+//                 printf("Divide cannot be 0!\n");
+//             }
+//             break;
+//         default:
+//             printf("Unknown operator!\n");
+//             break;
+//     }
+//     return 0;
+// }
+
+//例3-10 输入一个正整数n，再输入n个字符，分别统计出其中空格或回车、数字字符和其他字符的个数。要求使用switch语句编写
+// int main(void){
+//     int blank, digit, i, n, other;
+//     char ch;
+//     blank = digit = other = 0;
+//     printf("Enter n:");
+//     scanf("%d", &n);
+//     getchar();
+//     printf("Enter %d characters:", n);
+//     for(i=1; i<=n; i++){
+//         ch = getchar();
+//         switch(ch){
+//             case ' ':
+//             case '\n':
+//                 blank++;
+//                 break;
+//             case '0':
+//             case '1':
+//             case '2':
+//             case '3':
+//             case '4':
+//             case '5':
+//             case '6':
+//             case '7':
+//             case '8':
+//             case '9':
+//                 digit++;
+//                 break;
+//             default:
+//                 other++;
+//                 break;
+//         }
+//     }
+//     printf("blank=%d,digit=%d,other=%d\n", blank, digit, other);
+//     return 0;
+// }
+
+//练习3-7 成绩转换：输入一个百分制成绩将其转换为五分制成绩，百分制成绩到五分制成绩的转换规则：大于或等于90分为A，小于90分且大于或等于80分为B，小于80分且大于或等于70为C，小于70分且大于或等于60为D，小于60分为E
+// int main(void){
+//     int score;
+//     char res;
+//     printf("Input score:");
+//     scanf("%d", &score);
+//     if(score>=90){
+//         res = 'A';
+//     } else if(score>=80){
+//         res = 'B';
+//     } else if(score>=70){
+//         res = 'C';
+//     } else if(score>=60){
+//         res = 'D';
+//     } else {
+//         res = 'E';
+//     }
+//     printf("Result:%c\n", res);
+//     return 0;
+// }
+
+//练习3-8 查询水果的单价：有四种水果，苹果，梨，橘子和葡萄，单价分别是3.0元/千克，2.0元/千克，4.1元/千克和10.2元/千克。在屏幕上显示以下菜单(编号和选项)，用户可以连续查询水果的单价，当查询次数超过5次时，自动退出查询；不到5次时，用户可以选择退出。当用户输入编号1~4，显示相应水果的单价(保留一位小数)，输入0退出查询，输入其他编号显示价格为0
+// int main(void){
+//     int choice, i;
+//     double price;
+//     printf("[1] apples\n");
+//     printf("[2] pears\n");
+//     printf("[3] oranges\n");
+//     printf("[4] grapes\n");
+//     printf("[0] Exit\n");
+//     for(i=1; i<=5; i++){
+//         printf("Enter your choice:");
+//         scanf("%d", &choice);
+//         if(choice==0){
+//             break;  //break跳出for循环
+//         }
+//         switch(choice){
+//             case 1:price = 3.0; break;
+//             case 2:price = 2.0; break;
+//             case 3:price = 4.1; break;
+//             case 4:price = 10.2; break;
+//             default:price = 0; break;
+//         }
+//         printf("%.1f\n", price);
+//     }
+//     printf("Thanks!\n");
+//     return 0;
+// }
+
+//练习3-9 改写例3-4，使用嵌套if-else语句
+// int main(void){
+//     double x, y;
+//     printf("Enter x:\n");
+//     scanf("%lf", &x);
+//     if(x<=15){  //将x<=15化为大条件
+//         if(x>=0){
+//             y = 4 * x / 3;
+//         } else {
+//             y = 0;
+//         }
+//     } else {
+//         y = 2.5 * x - 10.5;
+//     }
+//     printf("y=f(%f)=%.2f\n", x, y);
+//     return 0;
+// }
