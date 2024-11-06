@@ -715,4 +715,72 @@
 //     return 0;
 // }
 
-//
+//例4-1 用格雷戈里公式求给定精度的派值。使用格雷戈里公式求派的近似值，要求精确到最后一项的绝对值小于给定精度eps。
+// #include <math.h>
+// int main(void){
+//     int denominator, i, flag;
+//     double eps, pi, item;
+//     printf("Enter eps:");
+//     scanf("%lf", &eps);
+//     i = 1;
+//     flag = 1;
+//     denominator = 1;
+//     item = 1.0;
+//     pi = 0;
+//     while(fabs(item)>=eps){
+//         pi = pi + item;
+//         i++;
+//         flag = -flag;
+//         denominator = denominator + 2;
+//         item = flag * 1.0 / denominator;
+//     }
+//     pi = pi + item;
+//     pi = pi * 4;
+//     printf("pi=%.4f\n", pi);
+//     printf("i=%d\n", i);
+//     return 0;
+// }
+
+//例4-2 统计一批学生的平均成绩与不及格人数。更改例3-3，从键盘输入一批学生的成绩，计算平均成绩，并统计不及格学生的人数
+// int main(void){
+//     int count, num;
+//     double score, total;
+//     num = 0;
+//     total = 0;
+//     count = 0;
+//     printf("Enter scores:");
+//     scanf("%lf", &score);
+//     while(score>=0){
+//         total = total + score;
+//         num++;
+//         if(score<60){
+//             count++;
+//         }
+//         scanf("%lf", &score);
+//     }
+//     if(num!=0){
+//         printf("Average is %.2f\n", total/num);
+//         printf("Number of failures is%d\n", count);
+//     } else {
+//         printf("Average is 0\n");
+//     }
+//     return 0;
+// }
+
+//例4-3 统计一个整数的位数。从键盘读入一个整数，统计该数的位数。例如输入12534输出5，输入-99输出2，输入0输出1
+int main(void){
+    int count, number, t_number;
+    count = 0;
+    printf("Enter a number:");
+    scanf("%d", &number);
+    t_number = number;
+    if(t_number<0){
+        t_number = -t_number;
+    }
+    do{
+        count++;
+        t_number = t_number / 10;
+    } while(t_number!=0);
+    printf("It contains %d digits.\n", count);
+    return 0;
+}
