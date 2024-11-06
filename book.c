@@ -768,19 +768,33 @@
 // }
 
 //例4-3 统计一个整数的位数。从键盘读入一个整数，统计该数的位数。例如输入12534输出5，输入-99输出2，输入0输出1
-int main(void){
-    int count, number, t_number;
-    count = 0;
-    printf("Enter a number:");
-    scanf("%d", &number);
-    t_number = number;
-    if(t_number<0){
-        t_number = -t_number;
-    }
-    do{
-        count++;
-        t_number = t_number / 10;
-    } while(t_number!=0);
-    printf("It contains %d digits.\n", count);
-    return 0;
-}
+// int main(void){
+//     int count, number, t_number;
+//     count = 0;
+//     printf("Enter a number:");
+//     scanf("%d", &number);
+//     t_number = number;
+//     if(t_number<0){
+//         t_number = -t_number;
+//     }
+//     do{
+//         count++;
+//         t_number = t_number / 10;
+//     } while(t_number!=0);
+//     printf("It contains %d digits.\n", count);
+//     return 0;
+// }
+
+//例4-逆序输出一个整数的各位数字。输入一个整数，将其逆序输出，例如输入12345输出54321
+// int main(void){
+//     int number;
+//     printf("Enter a number:");
+//     scanf("%d", &number);
+//     do{
+//         printf("%d", number%10);
+//         number = number / 10;
+//     } while(number!=0);
+//     return 0;
+// }
+
+//
