@@ -767,6 +767,26 @@
 //     return 0;
 // }
 
+//练习4-3 序列求和1-1/4+1/7-1/10+1/13+1/16+...输入一个正实数eps，计算序列1-1/4+1/7-1/10+1/13+1/16+...的值，精确到最后一项的绝对值小于eps（保留6位小数）
+// #include <math.h>
+// int main(void){
+//     int i, flag;
+//     double eps, sum, item;
+//     printf("Enter eps:");
+//     scanf("%lf", &eps);
+//     i = 1;
+//     flag = 1;
+//     sum = 0;
+//     do {
+//         item = 1.0 / ( 3 * i - 2);
+//         sum = sum + flag * item;
+//         i++;
+//         flag = -flag;
+//     } while(fabs(item)>=eps);
+//     printf("%.6f\n", sum);
+//     return 0;
+// }
+
 //例4-3 统计一个整数的位数。从键盘读入一个整数，统计该数的位数。例如输入12534输出5，输入-99输出2，输入0输出1
 // int main(void){
 //     int count, number, t_number;
@@ -785,7 +805,7 @@
 //     return 0;
 // }
 
-//例4-逆序输出一个整数的各位数字。输入一个整数，将其逆序输出，例如输入12345输出54321
+//例4-4 逆序输出一个整数的各位数字。输入一个整数，将其逆序输出，例如输入12345输出54321
 // int main(void){
 //     int number;
 //     printf("Enter a number:");
@@ -794,6 +814,91 @@
 //         printf("%d", number%10);
 //         number = number / 10;
 //     } while(number!=0);
+//     return 0;
+// }
+
+//例4-5 判断一个整数是否为素数。输入一个正整数m，判断它是否为素数。素数就是只能被1和自身整除的正整数，1不是素数，2是素数
+// #include <math.h>
+// int main(void){
+//     int m, i, limit;
+//     printf("Enter a number:");
+//     scanf("%d", &m);
+//     if(m<=1){
+//         printf("%d is not a prime number.\n");
+//     } else if(m==2){
+//         printf("%d is a prime number.\n");
+//     } else {
+//         limit = sqrt(m) + 1;
+//         for(i=2; i<=limit; i++){
+//             if(m%i==0){
+//                 break;
+//             }
+//         }
+//         if(i>limit){
+//             printf("%d is a prime number.\n");
+//         } else {
+//             printf("%d is not a prime number.\n");
+//         }
+//     }
+//     return 0;
+// }
+
+//例4-6 猜数游戏。更改例3-1简单的猜数游戏，输入你所猜的整数（假定为1到100），与计算机产生的被猜数相比，若相等显示猜中；若不等，显示与被猜数的大小关系。最多允许猜七次。
+// #include <stdlib.h>
+// #include <time.h>
+// int main(void){
+//     int count = 0, flag, mynumber, yournumber;
+//     srand(time(0));
+//     mynumber = rand() % 100 + 1;
+//     flag = 0;
+//     while(count<7){
+//         printf("Enter your number:");
+//         scanf("%d", &yournumber);
+//         count++;
+//         if(yournumber==mynumber){
+//             printf("Lucky you!\n")
+//             flag = 1;
+//             break;
+//         } else if(yournumber>mynumber){
+//             printf("Your guess is too big.\n");
+//         } else {
+//             printf("Your guess is too small.\n");
+//         }
+//     }
+//     if(flag==0){
+//         printf("Game Over.\n");
+//     }
+//     return 0;
+// }
+
+//练习4-6 猜数字游戏：先输入2个不超过100的正整数，分别是被猜数mynumber和允许猜测的最大次数n，再输入你所猜的数yournumber，与被猜数mynumber进行比较，若相等，显示猜中；若不等，显示与被猜数的大小关系，最多允许猜n次。如果1次就猜出该数，显示“Bingo！”；如果3次以内猜到该数，则提示“Lucky You！”；如果超过3次但不超过n次猜到该数，则提示“Good Guess！”；如果超过n次都没有猜到，则提示“Game Over”；如果在到达n次之前，用户输入了一个负数也输出“Game Over”，并结束程序。
+// int main(void){
+//     int count, flag, mynumber, yournumber, n;
+//     printf("Enter two integers:");
+//     scanf("%d%d", &mynumber, &n);
+//     count = 0;
+//     flag = 0;
+//     while(count<n){
+//         printf("Enter your number:");
+//         scanf("%d", &yournumber);
+//         count++;
+//         if(yournumber<0){
+//             break;
+//         }
+//         if(yournumber==mynumber){
+//             flag = 1;
+//            if(n==1){
+//               printf("Bingo!\n");
+//            } else if(n<=3){
+//                printf("Lucky You!\n");
+//            } else {
+//                printf("Good Guess!\n");
+//            }
+//         }
+//     }
+//     if(flag==0){
+//         printf("Game Over\n");
+//     }
 //     return 0;
 // }
 
