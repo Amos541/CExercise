@@ -902,4 +902,244 @@
 //     return 0;
 // }
 
+//例4-7 使用函数求阶乘和。输入一个正整数n(n小于等于16)，计算1！+2！+3！+...+n!。要求定义和调用函数fact(n)计算n的阶乘。如果n是非负数，则该函数返回n的阶乘，否则返回0。
+// double fact(int n);
+// int main(void){
+//     int i, n;
+//     double sum;
+//     printf("Enter n:");
+//     scanf("%d", &n);
+//     sum = 0;
+//     for(int i=1; i<=n; i++){
+//         sum = sum + fact(i);
+//     }
+//     printf("1!+2!+3!+...+%d!=%.0f\n", n, sum);
+//     return 0;
+// }
+// double fact(int n){
+//     int i;
+//     double result;
+//     if(n<0){
+//         return 0;
+//     } 
+//     result = 1;
+//     for(i=1; i<=n; i++){
+//         result = result * i;
+//     }
+//     return result;
+// }
+
+//练习4-7 求e的值。输入一个正整数n，计算下列的前n项之和（保留四位小数），要求使用嵌套循环。试编写相应程序。e=1+1/1!+1/2!+1/3!+...+1/n!。
+// int main(void){
+//     int i, n, item, j;
+//     double sum;
+//     printf("Enter n:");
+//     scanf("%d", &n);
+//     sum = 1;
+//     for(i=1; i<=n; i++){
+//         item = 1;
+//         for(j=1; j<=i; j++){
+//             item = item * j;
+//         }
+//         sum = sum + 1.0/item;
+//     }
+//     printf("e=%.4f\n", sum);
+//     return 0;
+// }
+
+//例4-8 求最值问题。输入一批学生的成绩找出最高分。
+// //从输入的n个成绩中选出最高分，用for循环实现
+// int main(void){
+//     int i, mark, max, n;
+//     printf("Enter n:");
+//     scanf("%d", &n);
+//     printf("Enter %d marks:", n);
+//     scanf("%d", &mark);
+//     max = mark;
+//     for(i=1; i<n; i++){
+//         scanf("%d", &mark);
+//         if(mark>max){
+//             max = mark;
+//         }
+//     }
+//     printf("The max mark is %d\n", max);
+//     return 0;
+// }
+// //从输入的一批以负数结束的成绩中选出最高分，用while语句实现。
+// int main(void){
+//     int mark, max;
+//     printf("Enter marks:");
+//     scanf("%d", &mark);
+//     max = mark;
+//     while(mark>=0){
+//         scanf("%d", &mark);
+//         if(mark>max){
+//             max = mark;
+//         }
+//     }
+//     printf("The max mark is %d\n", max);
+//     return 0;
+// }
+
+//例4-9 斐波那契数列问题。输入正整数n(1<=n<=46)，输出斐波那契数列的前n项：1，1，2，3，5，8，13...每行输出5个。斐波那契数列就是满足任意项数字是前两项的和（最开始两项均定义为1）的数列。
+// int main(void){
+//     int i, n, x1, x2, x;
+//     printf("Enter n:");
+//     scanf("%d", &n);
+//     if(n<1||n>46){
+//         printf("Invalid input\n");
+//     } else if(n==1){
+//         printf("%10d\n", 1);
+//     } else {
+//         x1 = 1;
+//         x2 = 1;
+//         printf("%10d%10d", x1, x2);
+//         for(i=3; i<=n; i++){
+//             x = x1 + x2;
+//             printf("%10d", x);
+//             if(i%5==0){
+//                 printf("\n");
+//             }
+//             x1 = x2;
+//             x2 = x;
+//         }
+//     }
+//     return 0;
+// }
+
+//例4-10 素数问题。输入两个正整数m和n（1<=m<=n<=500)，输出m到n之间的全部素数，每行输出十个。素数就是只能被1和自身整除的正整数，1不是素数，2是素数。
+// #include <math.h>
+// int main(void){
+//     int count, i, k, flag, limit, m, n;//count是用来记录素数的个数，用来控制输出格式；k是用来循环的数；i是用来判断素数的因数
+//     printf("Enter m and n:");
+//     scanf("%d%d", &m, &n);
+//     count = 0;
+//     if(m<1||n>500){
+//         printf("Invalid input\n");
+//     } else {
+//         for(k=m; k<=n; k++){
+//             if(k<=1){
+//                 flag = 0;
+//             } else if(k==2){
+//                 flag = 1;
+//             } else {
+//                 flag = 1;           //默认为素数
+//                 limit = sqrt(k) + 1;
+//                 for(i=2; i<=limit; i++){
+//                     if(k%i==0){     //素数不可能被比其本身小的数整除
+//                         flag = 0;   //不是素数置为0
+//                         break;
+//                     }
+//                 }
+//             }
+//             if(flag==1){            //如果是素数
+//                 printf("%6d", k);
+//                 count++;
+//                 if(count%10==0){
+//                     printf("\n");
+//                 }
+//             }
+//         }
+//     }
+//     return 0;
+// }
+
+//例4-11 搬砖问题。某工地需要搬运砖块，已知男人一人搬3块，女人一人搬2块，小孩两人搬1块，如果想用n人正好搬n块砖，问有哪些搬法？
+// int main(void){
+//     int children, cnt, men, n, women;
+//     printf("Enter n:");
+//     scanf("%d", &n);
+//     cnt = 0;
+//     limit_men = n/3;
+//     limit_women = n/2;
+//     for(men=0; men<=limit_mrn; men++){
+//         for(women=0; women<=limit_women; women++){
+//             children = n - men - women;
+//             if(men*3+women*2+children*0.5==n){
+//                 printf("%d men, %d women, %d children\n", men, women, children);
+//                 cnt++;
+//             }
+//         }
+//     }
+//     if(cnt==0){
+//         printf("No solution\n");
+//     }
+//     return 0;
+// }
+
+//例4-12 找零钱问题。有足够数量的5分，2分和1分硬币，现在要用这些硬币来支付一笔小于1元的零钱money，问至少要用多少个硬币。输入零钱，输出硬币的总数量和相应面额的硬币数量。
+// int main(void){
+//     int flag, money, n1, n2, n5;
+//     flag = 1;
+//     printf("Enter money:");
+//     scanf("%d", &money);
+//     for(n5=money/5; (n5>=0)&&(flag==1); n5--){
+//         for(n2=(money-n5*5)/2; (n2>=0)&&(flag==1); n2--){
+//             for(n1=(money-n5*5-n2*2)/1; (n1>=0)&&(flag==1); n1--){
+//                 if(n5*5+n2*2+n1==money){
+//                     printf("5:%d, 2:%d, 1:%d, total:%d\n", n5, n2, n1, n5+n2+n1);
+//                     flag = 0;
+//                 }
+//             }
+//         }
+//     }
+//     return 0;
+// }
+
+//练习4-10 找出最小值：输入一个正整数n，再输入n个整数，输出最小值。
+// int main(void){
+//     int n, i, min, num;
+//     printf("Enter n:");
+//     scanf("%d", &n);
+//     printf("Enter %d numbers:", n);
+//     scanf("%d", &num);
+//     min = num;
+//     for(i=1; i<n; i++){
+//         scanf("%d", &num);
+//         if(num<min){
+//             min = num;
+//         }
+//     }
+//     printf("The min is %d\n", min);
+//     return 0;
+// }
+
+//练习4-11 统计素数并求和。输入两个正整数m和n（1<=m<=n<=500)，输出m到n之间的素数的个数以及这些素数的和。素数就是只能被1和自身整除的正整数，1不是素数，2是素数。
+// #include <math.h>
+// int main(void){
+//     int count, i, k, flag, limit, m, n, sum;
+//     printf("Enter m and n:");
+//     scanf("%d%d", &m, &n);
+//     count = 0;
+//     sum = 0;
+//     if(m<1||n>500){
+//         printf("Invalid input\n");
+//     } else {
+//         for(k=m; k<=n; k++){
+//             flag = 1;
+//             if(k==1){
+//                 flag = 0;
+//             } else if(k==2){
+//                 flag = 1;
+//                 count++;
+//                 sum += k;
+//             } else {
+//                 limit = sqrt(k) + 1;
+//                 for(i=2; i<=limit; i++){
+//                     if(k%i==0){
+//                         flag = 0;
+//                         break;
+//                     }
+//                 }
+//             }
+//             if(flag==1){
+//                 count++;
+//                 sum += k;
+//             }
+//         }
+//     }
+//     printf("There are %d primes and their sum is %d\n", count, sum);
+//     return 0;
+// }
+
 //
